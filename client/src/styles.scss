@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap';
+
+body {
+    background-image: url('https://assets.weforum.org/article/image/responsive_big_webp_hySrQhk9QgN45B-0z8PR0bd8ZRyDZ9LnvzPSGaIb91Q.webp');
+    height: fit-content;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat-y;
+    font-family: Dancing Script, cursive;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+}

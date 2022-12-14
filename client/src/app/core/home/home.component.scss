@@ -1,0 +1,41 @@
+.title {
+    color: white;
+    font-size: 90px;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.title p {
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.7), rgb(0, 0, 0, 0));
+    color: white;
+    animation: fadein 4s;
+}
+
+@media screen and (max-width: 720px) {
+    .title {
+        font-size: 75px;
+    }
+}
+
+@media screen and (max-width: 408px) {
+    .title {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 326px) {
+    .title {
+        padding-top: 20vh;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

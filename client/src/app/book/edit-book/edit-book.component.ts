@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { BookService } from '../book.service';
 import { IBook } from 'src/app/shared/interfaces/book';
@@ -15,12 +15,12 @@ export class EditBookComponent {
   id = this.activatedRoute.snapshot.params['id'];
 
   form = this.fb.group({
-    bookTitle: [''],
-    author: [''],
-    yearOfIssue: [''],
-    image: [''],
-    genre: [''],
-    nationality: ['']
+    bookTitle: ['', [Validators.required]],
+    author: ['', [Validators.required]],
+    yearOfIssue: ['', [Validators.required]],
+    image: ['', [Validators.required]],
+    genre: ['', [Validators.required]],
+    nationality: ['', [Validators.required]]
   });
 
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private bookService: BookService, private router: Router) {
@@ -38,9 +38,9 @@ export class EditBookComponent {
   }
 
   editBookHandler() {
+    if (this.form.invalid) { return; }
     const { bookTitle, author, yearOfIssue, image, genre, nationality } = this.form.value;
     const bookId = this.id;
-
     this.bookService.updateBook(
       bookTitle!,
       author!,

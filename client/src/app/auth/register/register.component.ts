@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
+import { sameValueGroupValidator } from 'src/app/shared/validators';
 
 @Component({
   selector: 'app-register',
@@ -11,14 +12,23 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   form = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', [Validators.required, Validators.email]],
+    pass: this.fb.group(
+      {
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        rePassword: []
+      },
+      {
+        validators: [sameValueGroupValidator('password', 'rePassword')]
+      }
+    )
   });
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   registerHandler() {
-    const { email, password } = this.form.value;
+    if (this.form.invalid) { return; }
+    const { email, pass: { password } = { } } = this.form.value;
     this.authService.register(email!, password!)
       .subscribe(user => {
         this.authService.user = user;

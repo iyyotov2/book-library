@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookService } from '../book.service';
 
@@ -10,19 +10,19 @@ import { BookService } from '../book.service';
 })
 export class NewBookComponent {
   form = this.fb.group({
-    bookTitle: [''],
-    author: [''],
-    yearOfIssue: [''],
-    image: [''],
-    genre: [''],
-    nationality: ['']
+    bookTitle: ['', [Validators.required]],
+    author: ['', [Validators.required]],
+    yearOfIssue: ['', [Validators.required]],
+    image: ['', [Validators.required]],
+    genre: ['', [Validators.required]],
+    nationality: ['', [Validators.required]]
   });
 
   constructor(private fb: FormBuilder, private bookService: BookService, private router: Router) { }
 
   newBookHandler() {
+    if (this.form.invalid) { return; }
     const { bookTitle, author, yearOfIssue, image, genre, nationality } = this.form.value;
-
     this.bookService.createBook(
       bookTitle!,
       author!,

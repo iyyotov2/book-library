@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
@@ -11,13 +11,14 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   form = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]]
   });
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   loginHandler() {
+    if (this.form.invalid) { return; }
     const { email, password } = this.form.value;
     this.authService.login(email!, password!)
       .subscribe(user => {

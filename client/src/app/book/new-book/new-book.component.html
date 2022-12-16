@@ -7,26 +7,56 @@
             <div class="grid-item">
                 <label for="bookTitle">Book Title:</label>
                 <input type="text" name="bookTitle" formControlName="bookTitle">
+                <ng-container *ngIf="form.get('bookTitle')?.touched">
+                    <p *ngIf="form.get('bookTitle')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="author">Author:</label>
                 <input type="text" name="author" formControlName="author">
+                <ng-container *ngIf="form.get('author')?.touched">
+                    <p *ngIf="form.get('author')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="yearOfIssue">Year of Issue:</label>
                 <input type="text" name="yearOfIssue" formControlName="yearOfIssue">
+                <ng-container *ngIf="form.get('yearOfIssue')?.touched">
+                    <p *ngIf="form.get('yearOfIssue')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="image">Image:</label>
                 <input type="text" name="image" formControlName="image">
+                <ng-container *ngIf="form.get('image')?.touched">
+                    <p *ngIf="form.get('image')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="genre">Genre:</label>
                 <input type="text" name="genre" formControlName="genre">
+                <ng-container *ngIf="form.get('genre')?.touched">
+                    <p *ngIf="form.get('genre')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="nationality">Nationality:</label>
                 <input type="text" name="nationality" formControlName="nationality">
+                <ng-container *ngIf="form.get('nationality')?.touched">
+                    <p *ngIf="form.get('nationality')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
         </div>
         <div class="button">

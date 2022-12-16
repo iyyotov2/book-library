@@ -7,10 +7,20 @@
             <div class="grid-item">
                 <label for="email">Email:</label>
                 <input type="text" name="email" formControlName="email">
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p *ngIf="form.get('email')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
             <div class="grid-item">
                 <label for="password">Password:</label>
-                <input type="text" name="password" formControlName="password">
+                <input type="password" name="password" formControlName="password">
+                <ng-container *ngIf="form.get('password')?.touched">
+                    <p *ngIf="form.get('password')?.errors?.['required']" class="error">
+                        Field is required!
+                    </p>
+                </ng-container>
             </div>
         </div>
         <div class="button">

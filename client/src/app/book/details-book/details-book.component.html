@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="book" class="container">
     <div class="heading">
         <h1>Book details</h1>
         <p class="back-btn">
@@ -9,13 +9,16 @@
     </div>
     <div class="flex-container">
         <div class="flex-item">
-            <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052._SY475_.jpg"
-                alt="">
-            <p>Title: The Hunger Games</p>
-            <p>Author: Suzanne Collins</p>
-            <p>Year: 2008</p>
-            <p>Genre: Dystopian</p>
-            <p>Country: USA</p>
+            <img src={{book.image}} alt="image">
+            <p>Title: {{book.bookTitle}}</p>
+            <p>Author: {{book.author}}</p>
+            <p>Year: {{book.yearOfIssue}}</p>
+            <p>Genre: {{book.genre}}</p>
+            <p>Country: {{book.nationality}}</p>
         </div>
+    </div>
+    <div *ngIf="book._ownerId === userId" class="buttons">
+        <a class="edit" href="/book/edit/{{book._id}}">Edit</a>
+        <a class="del" href="/book/delete/{{book._id}}">Delete</a>
     </div>
 </div>

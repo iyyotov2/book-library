@@ -2,15 +2,15 @@
     <div class="heading">
         <h1>Register</h1>
     </div>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="registerHandler()">
         <div class="grid-container">
             <div class="grid-item">
                 <label for="email">Email:</label>
-                <input type="text" name="email">
+                <input type="text" name="email" formControlName="email">
             </div>
             <div class="grid-item">
                 <label for="password">Password:</label>
-                <input type="text" name="password">
+                <input type="text" name="password" formControlName="password">
             </div>
             <div class="grid-item">
                 <label for="rePassword">Repeat password:</label>

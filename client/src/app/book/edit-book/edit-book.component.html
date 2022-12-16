@@ -1,36 +1,39 @@
-<div class="container">
+<div *ngIf="book" class="container">
     <div class="heading">
         <h1>Edit book</h1>
     </div>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="editBookHandler()">
         <div class="grid-container">
             <div class="grid-item">
                 <label for="bookTitle">Book Title:</label>
-                <input type="text" name="bookTitle">
+                <input type="text" name="bookTitle" formControlName="bookTitle">
             </div>
             <div class="grid-item">
                 <label for="author">Author:</label>
-                <input type="text" name="author">
+                <input type="text" name="author" formControlName="author">
             </div>
             <div class="grid-item">
                 <label for="yearOfIssue">Year of Issue:</label>
-                <input type="text" name="yearOfIssue">
+                <input type="text" name="yearOfIssue" formControlName="yearOfIssue">
             </div>
             <div class="grid-item">
                 <label for="image">Image:</label>
-                <input type="text" name="image">
+                <input type="text" name="image" formControlName="image">
             </div>
             <div class="grid-item">
                 <label for="genre">Genre:</label>
-                <input type="text" name="genre">
+                <input type="text" name="genre" formControlName="genre">
             </div>
             <div class="grid-item">
                 <label for="nationality">Nationality:</label>
-                <input type="text" name="nationality">
+                <input type="text" name="nationality" formControlName="nationality">
             </div>
         </div>
         <div class="button">
-            <button>Edit</button>
+            <button>Save</button>
+            <div class="back">
+                <a routerLink="/book/details/{{book._id}}">Back</a>
+            </div>
         </div>
     </form>
 </div>

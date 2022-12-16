@@ -4,9 +4,10 @@
     </div>
     <nav class="header-nav">
         <a routerLink="/book/list">Catalog</a>
-        <a routerLink="/book/new">Add book</a>
+        <a *ngIf="isLoggedIn" routerLink="/book/new">Add book</a>
         <span>|</span>
-        <a routerLink="/auth/login">Login</a>
-        <a routerLink="/auth/register">Register</a>
+        <a *ngIf="!isLoggedIn" routerLink="/auth/login">Login</a>
+        <a *ngIf="!isLoggedIn" routerLink="/auth/register">Register</a>
+        <a *ngIf="isLoggedIn" routerLink="/auth/logout">Logout</a>
     </nav>
 </header>

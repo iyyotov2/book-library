@@ -60,11 +60,12 @@
 }
 
 .container .button {
-    padding-right: 1.8vw;
-    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 0.24vw;
 }
 
-.container button {
+.container button, .container .back {
     width: 120px;
     height: 50px;
     background-color: rgba(255, 255, 255, 0.863);
@@ -72,11 +73,24 @@
     font-size: 30px;
     border: none;
     border-radius: 10px;
+    margin-right: 2%;
     cursor: pointer;
 }
 
-.container button:hover {
+.container .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container button:hover, .container .back:hover {
     background-color: white;
+}
+
+.container a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
 }
 
 @media screen and (max-width: 960px) {
@@ -104,10 +118,10 @@
     }
 
     .container .button {
-        padding-right: 1.6vw;
+        padding-right: 0.12vw;
     }
 
-    .container button {
+    .container button, .container .back {
         width: 100px;
         height: 40px;
         font-size: 28px;
@@ -136,10 +150,10 @@
     }
 
     .container .button {
-        padding-right: 1.6vw;
+        padding-right: 0.08vw;
     }
 
-    .container button {
+    .container button, .container .back {
         width: 85px;
         height: 35px;
         font-size: 26px;
@@ -174,15 +188,25 @@
 
     .container .button {
         width: 100%;
-        display: block;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         padding: 0;
     }
 
-    .container button {
+    .container button, .container .back {
         width: 70px;
         height: 30px;
         font-size: 20px;
         border-radius: 6px;
+        margin: 0;
+    }
+
+    .container button {
+        margin-left: 1%;
+    }
+
+    .container .back {
+        margin-right: 1%;
     }
 }

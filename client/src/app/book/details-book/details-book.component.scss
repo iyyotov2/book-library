@@ -35,6 +35,10 @@
     text-decoration: none;
 }
 
+.container .heading .back-btn a:hover {
+    color: white;
+}
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -63,6 +67,37 @@
     margin-bottom: 20px;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 10%;
+}
+
+.buttons a {
+    width: 12%;
+    color: rgba(255, 255, 255, 0.863);
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.863);
+    border-radius: 7px;
+    margin-left: 2%;
+}
+
+.buttons a:hover {
+    color: white;
+    border-color: white;
+}
+
+.buttons .del {
+    color: rgba(255, 0, 0, 0.663);
+    border-color: rgba(255, 0, 0, 0.663);
+}
+
+.buttons .del:hover {
+    color: rgba(255, 0, 0, 0.886);
+    border-color: rgba(255, 0, 0, 0.886);
+}
+
 @media screen and (max-width: 960px) {
     .container h1 {
         font-size: 45px;
@@ -83,6 +118,11 @@
         margin-top: 0;
         margin-bottom: 8px;
         margin-left: 35%;
+    }
+
+    .buttons a {
+        font-size: 24px;
+        border-radius: 6px;
     }
 }
 
@@ -106,6 +146,11 @@
         margin-top: 0;
         margin-bottom: 6px;
         margin-left: 30%;
+    }
+
+    .buttons a {
+        font-size: 22px;
+        border-radius: 5px;
     }
 }
 
@@ -149,5 +194,15 @@
         margin-bottom: 0;
         margin-left: 2px;
         padding-top: 10px;
+    }
+
+    .buttons {
+        display: block;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .buttons a {
+        font-size: 18px;
     }
 }

@@ -6,6 +6,7 @@ import { DetailsBookComponent } from './details-book/details-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { BookResolver } from './resolvers/book.resolver';
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: NewBookComponent
+    component: NewBookComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: true
+    }
   },
   {
     path: 'details/:id',
@@ -28,14 +33,22 @@ const routes: Routes = [
     resolve: {
       book: BookResolver
     },
-    component: EditBookComponent
+    component: EditBookComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: 'delete/:id',
     resolve: {
       book: BookResolver
     },
-    component: DeleteBookComponent
+    component: DeleteBookComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: '**',

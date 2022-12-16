@@ -3,19 +3,32 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [AuthGuard],
+    data: {
+      loginRequired: true
+    }
   },
   {
     path: '**',

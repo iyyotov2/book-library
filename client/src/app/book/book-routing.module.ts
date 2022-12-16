@@ -36,7 +36,7 @@ const routes: Routes = [
     component: EditBookComponent,
     canActivate: [AuthGuard],
     data: {
-      loginRequired: false
+      loginRequired: true
     }
   },
   {
@@ -47,7 +47,7 @@ const routes: Routes = [
     component: DeleteBookComponent,
     canActivate: [AuthGuard],
     data: {
-      loginRequired: false
+      loginRequired: true
     }
   },
   {

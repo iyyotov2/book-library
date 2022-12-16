@@ -1,8 +1,8 @@
-<div *ngIf="book" class="container">
+<div class="container">
     <div class="heading">
         <h1>Edit book</h1>
     </div>
-    <form [formGroup]="form" (ngSubmit)="editBookHandler()">
+    <form *ngIf="book" [formGroup]="form" (ngSubmit)="editBookHandler()">
         <div class="grid-container">
             <div class="grid-item">
                 <label for="bookTitle">Book Title:</label>

@@ -11,8 +11,6 @@ import { sameValueGroupValidator } from 'src/app/shared/validators';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  passDoNotMatch = false;
-
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     pass: this.fb.group(
@@ -29,10 +27,7 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   registerHandler() {
-    if (this.form.invalid) {
-      this.passDoNotMatch = true;
-      return;
-    }
+    if (this.form.invalid) { return; }
     const { email, pass: { password } = { } } = this.form.value;
     this.authService.register(email!, password!)
       .subscribe(user => {

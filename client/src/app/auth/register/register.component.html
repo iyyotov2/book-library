@@ -32,7 +32,7 @@
                 <div class="grid-item">
                     <label for="rePassword">Repeat password:</label>
                     <input type="password" name="rePassword" formControlName="rePassword">
-                    <p *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched" class="error">Repeat Password does not match password!</p>
+                    <p *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched || passDoNotMatch" class="error">Repeat Password does not match password!</p>
                 </div>
             </ng-container>
         </div>

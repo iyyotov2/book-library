@@ -8,7 +8,7 @@ const userController = require('./src/controllers/userController');
 
 async function start () {
     try {
-        const db = await mongoose.connect('mongodb://localhost:27017/library');
+        const db = await mongoose.connect('mongodb://0.0.0.0:27017/library');
 
         console.log('DB Ready');
     } catch (err) {
